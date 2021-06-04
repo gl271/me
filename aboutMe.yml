@@ -2,8 +2,8 @@ name: Genevieve Lam
 studentNumber: z5161127
 officialEmail: genevieve.lam@unsw.edu.au
 contactEmail: # don't write on this line
-  firstBit: firstName.Lastname # this avoids spam, the @ is implied
-  otherBit: whereIwork.com
+  firstBit: gen_lam # this avoids spam, the @ is implied
+  otherBit: live.com
 # accounts
 stackOverflowLink: https://stackoverflow.com/users/16122842/genevieve-lam
 github: https://github.com/gl271
