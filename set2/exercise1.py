@@ -20,8 +20,8 @@ for x in some_words:
     print(x)
 # it will print all the words in the some_words bracket
 print(some_words)
-# will print some words if it contains more than 3 words in the brackets, hence len = list length
 
+# will print some words if it contains more than 3 words in the brackets, hence len = list length
 if len(some_words) > 3:
     print('some_words contains more than 3 words')
 
