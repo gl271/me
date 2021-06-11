@@ -86,7 +86,6 @@ def really_shout(a_string):
    
     
     the_answer = a_string.upper() + "!"
-    the_answer = 
     return the_answer
 
 
