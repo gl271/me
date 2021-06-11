@@ -84,10 +84,9 @@ def really_shout(a_string):
     Look up how to 'concatinate' strings to make this happen.
     """
    
-    
-    the_answer = a_string.upper() + "!"
+    the_answer = shout(a_string) + "!"
     return the_answer
-
+    # or very_loud = shout(a_string), the_answer = f"{very_loud}!"
 
 def shout_with_a_number(a_string, a_number):
     """Return a string in uppercase with a space and a_number concatentated.
@@ -103,7 +102,7 @@ def shout_with_a_number(a_string, a_number):
     """
     the_answer = shout(a_string) + " " + str(a_number) 
     return the_answer
-
+    #or very_loud = shout (a_string), the_answer = f"{very_loud}{a_number}"
 
 
 """#################################
