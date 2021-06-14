@@ -84,7 +84,7 @@ def loops_2():
     across = []
     down = []
     for i in range(10):
-        across.append("*" + " ")
+        across.append("*")
     for j in range(10):
         down.append(across)
     return down
@@ -116,14 +116,12 @@ def loops_3():
     """
 
     side = []
-    under = []
     for i in range(10):
+        under = []
         for j in range(10):
-            under.append(str(i) + " ")
-        under.append("\n")
+            under.append(str(i))
         side.append(under)
-
-    return under
+    return side
 
 
 def loops_4():
@@ -146,7 +144,7 @@ def loops_4():
     across = []
     down = []
     for i in range(10):
-        across.append(str(i) + " ")
+        across.append(str(i))
     for j in range(10):
         down.append(across)
     return down
@@ -177,11 +175,11 @@ def loops_5():
     you'll come to see the pros and cons of each over time.
     """
     across = []
-    down = []
     for i in range(10):
-        for j in range(10):
-            across.append("(" + "i" + str(i) + "," + " " + "j" + str(j) + ")" + " ")
-        across.append("\n")
+        down = []
+        for j in range(5):
+            down.append("(i" + str(i) + ", " + "j" + str(j) + ")")
+        across.append(down)
     return across
 
 
@@ -208,11 +206,10 @@ def loops_6():
     across = []
     down = []
     for i in range(10):
-        for j in range(i):
-            across.append(str(j) + " ")
-        across.append("\n")
+        across = []
+        for j in range(i + 1):
+            across.append(str(j))
         down.append(across)
-        across.clear()
     return down
 
 
