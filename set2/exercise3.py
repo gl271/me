@@ -26,13 +26,13 @@ def fix_it(moves=True, should_move=True):
     Most people write this function with 4 return statements.
     As an extra challenge, see if you can get that down to three.
     """
-    if moves and should_move or not moves and not should_move:
+    if (moves and should_move) or (not moves and not should_move):
         return "No Problem"
 
-    elif moves and not should_move:
+    elif (moves) and (not should_move):
         return "Duct Tape"
 
-    elif not moves and should_move:
+    elif (not moves) and (should_move):
         return "WD-40"
 
 
@@ -43,7 +43,10 @@ def loops_1a():
     return a list of 10 items, each one a string with exacly one star in it.
     E.g.: ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*']
     """
-    return None
+    stars = []
+    for i in range(10):
+        stars.append("*\n")
+    return stars
 
 
 def loops_1c(number_of_items=5, symbol="#"):
@@ -53,7 +56,10 @@ def loops_1c(number_of_items=5, symbol="#"):
     string with exacly one symbol in it.
     E.g.: ['#', '#', '#', '#', '#']
     """
-    return None
+    a_list = []
+    for i in range(number_of_items):
+        a_list.append(symbol)
+    return a_list
 
 
 def loops_2():
@@ -74,7 +80,17 @@ def loops_2():
             ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*'],
           ]
     """
-    return None
+
+    across = []
+    down = []
+    for i in range(10):
+        across.append("*" + " ")
+    for j in range(10):
+        down.append(across)
+    return down
+
+
+# i and j are varbs hence x and y, mult to make grid when ac[] and dwn=[]
 
 
 def loops_3():
@@ -98,7 +114,16 @@ def loops_3():
     TIP: notice that this needs to to return strings of numbers,
          so call str(number) to cast.
     """
-    return None
+
+    side = []
+    under = []
+    for i in range(10):
+        for j in range(10):
+            under.append(str(i) + " ")
+        under.append("\n")
+        side.append(under)
+
+    return under
 
 
 def loops_4():
@@ -118,7 +143,13 @@ def loops_4():
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     ]
     """
-    return None
+    across = []
+    down = []
+    for i in range(10):
+        across.append(str(i) + " ")
+    for j in range(10):
+        down.append(across)
+    return down
 
 
 def loops_5():
@@ -145,7 +176,13 @@ def loops_5():
         "There are {} green bottles".format(8)
     you'll come to see the pros and cons of each over time.
     """
-    return None
+    across = []
+    down = []
+    for i in range(10):
+        for j in range(10):
+            across.append("(" + "i" + str(i) + "," + " " + "j" + str(j) + ")" + " ")
+        across.append("\n")
+    return across
 
 
 def loops_6():
@@ -168,7 +205,15 @@ def loops_6():
     You can use a variable.
     TIP: look out for the starting condition.
     """
-    return None
+    across = []
+    down = []
+    for i in range(10):
+        for j in range(i):
+            across.append(str(j) + " ")
+        across.append("\n")
+        down.append(across)
+        across.clear()
+    return down
 
 
 def loops_7():
@@ -229,7 +274,7 @@ if __name__ == "__main__":
     print(fix_it(False, True), "fix_it")
     print(fix_it(False, False), "fix_it")
     little_printer(loops_1a(), "loops_1a")
-    little_printer(loops_1c(4, "×°×"), "loops_1c")
+    little_printer(loops_1c(5, "#"), "loops_1c")
     little_printer(loops_2(), "loops_2")
     little_printer(loops_3(), "loops_3")
     little_printer(loops_4(), "loops_4")
