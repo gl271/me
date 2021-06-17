@@ -234,7 +234,16 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
-    return None
+    pyramid = []
+    for i in range(5):
+        star = []
+        for j in range(9):
+            if j < 4 - i or j > 4 + i:
+                star.append(" ")
+            else:
+                star.append("*")
+        pyramid.append(star)
+    return pyramid
 
 
 def little_printer(some_kind_of_list, exercise_name):
