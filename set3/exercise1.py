@@ -45,13 +45,21 @@ def two_step_ranger(start, stop):
 
 def stubborn_asker(low, high):
     """Ask for a number between low and high until actually given one.
-
     Ask for a number, and if the response is outside the bounds keep asking
     until you get a number that you think is OK
 
     Look up the docs for input
     """
-    return None
+
+    correct_answer = False
+    while correct_answer == False:
+        # keeps looping until correct answer ^^
+        i = input()
+        # asks the user to input something = input = the variable that needs to be entered (i = x, j = y math terms)
+        if i > low and i < high:
+            correct_answer = True
+    return i
+    # ran 6 times before receiving the answer
 
 
 def not_number_rejector(message):
@@ -61,18 +69,37 @@ def not_number_rejector(message):
     (e.g. "cow", "six", "8!") then throw it out and ask for an actual number.
     When you do get a number, return it.
     """
-    return None
+
+    correct_answer = False
+    while correct_answer == False:
+        i = input()
+        try:
+            i / 2
+            correct_answer = True
+        except:
+            print("wrong")
+    return i
+    # ran 3times before correct
 
 
 def super_asker(low, high):
     """Robust asking function.
-
     Combine what you learnt from stubborn_asker and not_number_rejector
     to make a function that does it all!
     Try to call at least one of the other functions to minimise the
     amount of code.
     """
-    return None
+
+    correct_answer = False
+    while correct_answer == False:
+        i = input()
+        try:
+            i / 2
+            stubborn_asker(low, high)
+            correct_answer = True
+        except:
+            print("input is not a number")
+    return i
 
 
 if __name__ == "__main__":
