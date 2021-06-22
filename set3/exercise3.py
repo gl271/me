@@ -28,35 +28,47 @@ def advancedGuessingGame():
     # the tests are looking for the exact string "You got it!". Don't modify that!
 
     print("Welcome to the guessing game!")
-    print("A number between 0 and _ ?")
+    print("A number between _ and 0 ?")
     correct_answer = False
     while correct_answer == False:
-        LowerBound = input("Enter a lower bound \n")
-        if isinstance(LowerBound, int) == True:
+        try:
+            LowerBound = int(input("Enter a lower bound \n"))
             correct_answer = True
         # isinstance checks variable to see what type it is (number or word etc) - specificed in int or chr
-        else:
+        except:
             print("Not a number, try again")
     print("OK then, a number between {} and 0 ?".format(LowerBound))
     LowerBound = int(LowerBound)
 
+    print("A number between 0 and _ ?")
     correct_answer = False
     while correct_answer == False:
-        UpperBound = input("Enter an upper bound \n")
         try:
-            UpperBound / 2
+            UpperBound = int(input("Enter a upper bound \n"))
             correct_answer = True
         except:
             print("Not a number, try again")
-    print("OK then, a number between 0 and {} ?".format(UpperBound))
+    print("OK then, a number between {} and {} ?".format(LowerBound, UpperBound))
     UpperBound = int(UpperBound)
+
+    if LowerBound > UpperBound:
+        print("swap it you idiot")
+        temp = LowerBound
+        LowerBound = UpperBound
+        UpperBound = temp
 
     actualNumber = random.randint(LowerBound, UpperBound)
 
     guessed = False
 
     while not guessed:
-        guessedNumber = int(input("Guess a number: "))
+        correct_answer = False
+        while correct_answer == False:
+            try:
+                guessedNumber = int(input("Guess a number: "))
+                correct_answer = True
+            except:
+                print("Not a number, try again")
         print(
             "You guessed {},".format(guessedNumber),
         )
