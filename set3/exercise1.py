@@ -14,8 +14,11 @@ def loop_ranger(start, stop=None, step=1):
     """
 
     a_range = []
-    for i in range(start, stop, step):
+    i = start
+    while i < stop:
         a_range.append(i)
+        i += step
+    print(a_range)
     return a_range
 
 

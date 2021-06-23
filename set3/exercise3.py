@@ -34,7 +34,6 @@ def advancedGuessingGame():
         try:
             LowerBound = int(input("Enter a lower bound \n"))
             correct_answer = True
-        # isinstance checks variable to see what type it is (number or word etc) - specificed in int or chr
         except:
             print("Not a number, try again")
     print("OK then, a number between {} and 0 ?".format(LowerBound))

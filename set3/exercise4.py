@@ -28,7 +28,7 @@ def binary_search(low, high, actual_number):
 
     tries = 0
     correct_answer = False
-    guess = random.randint(low, high)
+    guess = int((high + low) / 2)
     while not correct_answer:
         tries += 1
         if guess == actual_number:
