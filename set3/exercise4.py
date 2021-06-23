@@ -3,6 +3,7 @@
 
 
 import math
+import random
 
 # import time
 
@@ -24,11 +25,36 @@ def binary_search(low, high, actual_number):
     Use the VS Code debugging tools a lot here. It'll make understanding
     things much easier.
     """
+
     tries = 0
-    guess = 0
-
-    # Write your code in here
-
+    correct_answer = False
+    guess = random.randint(low, high)
+    while not correct_answer:
+        tries += 1
+        if guess == actual_number:
+            print("{} is the correct answer!".format(guess))
+            correct_answer = True
+        elif guess < actual_number:
+            print("{} too low, try again".format(guess))
+            temp = guess
+            guess = int((high + guess) / 2)
+            low = temp
+            if guess + 1 == actual_number:
+                guess += 1
+            elif guess - 1 == actual_number:
+                guess -= 1
+            print("{} is low, {} is high".format(low, high))
+        elif actual_number < guess:
+            print("{} too high, try again".format(guess))
+            temp = guess
+            guess = int((low + guess) / 2)
+            high = temp
+            if guess + 1 == actual_number:
+                guess += 1
+            elif guess - 1 == actual_number:
+                guess -= 1
+            print("{} is low, {} is high".format(low, high))
+    print("Yay that's right")
     return {"guess": guess, "tries": tries}
 
 
