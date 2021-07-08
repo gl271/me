@@ -152,8 +152,17 @@ def diarist():
     TIP: this might come in handy if you need to hack a 3d print file in the future.
     """
 
-    no = print("no")
-    pass
+    mode = "r"  # from the docs
+    pewbook = open("set4/Trispokedovetiles(laser).gcode", mode)
+    pewbookdata = pewbook.read()
+    counter = pewbookdata.count("M10 P1")
+    pewbook.close()
+
+    mode = "w"
+    lasers = open("set4/lasers.pew", mode)
+    # or ../me/set4/lasers.pew
+    lasers.write(str(counter))
+    lasers.close()
 
 
 if __name__ == "__main__":
