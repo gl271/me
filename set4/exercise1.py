@@ -37,14 +37,19 @@ def get_some_details():
 
     data = json.loads(json_data)
 
-    results = {
-        "lastName": "",
-        "password": "",
-        "postcodePlugID": "",
-    }
+    lastname = data["results"][0]["name"]["last"]
+    password = data["results"][0]["login"]["password"]
+    postcode = data["results"][0]["location"]["postcode"]
+    ID = data["results"][0]["id"]["value"]
+    postcodePlusID = int(postcode) + int(ID)
 
-    print(json_data)
-    return {"lastName": None, "password": None, "postcodePlusID": None}
+    # print(lastname, password, postcodePlusID)
+
+    return {
+        "lastName": lastname,
+        "password": password,
+        "postcodePlusID": postcodePlusID,
+    }
 
 
 def wordy_pyramid():
@@ -81,7 +86,21 @@ def wordy_pyramid():
     ]
     TIP: to add an argument to a URL, use: ?argName=argVal e.g. &wordlength=
     """
-    pass
+
+    list = []
+    for number in range(3, 20, 2):
+        ogprt1 = "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength="
+        og = ogprt1 + str(number)
+        oglink = requests.get(og)
+        list.append(oglink.text)
+        # print(oglink.text)
+    for number in range(20, 3, -2):
+        ogprt1 = "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength="
+        og = ogprt1 + str(number)
+        oglink = requests.get(og)
+        list.append(oglink.text)
+        # print(oglink.text)
+    return list
 
 
 def pokedex(low=1, high=5):
@@ -100,11 +119,22 @@ def pokedex(low=1, high=5):
     """
     template = "https://pokeapi.co/api/v2/pokemon/{id}"
 
-    url = template.format(id=5)
-    r = requests.get(url)
-    if r.status_code is 200:
-        the_json = json.loads(r.text)
-    return {"name": None, "weight": None, "height": None}
+    tallest = 0
+    for id in range(low, high):
+        url = template.format(id=id)
+        r = requests.get(url)
+        if r.status_code is 200:
+            the_json = json.loads(r.text)
+            # print(the_json)
+            currentheight = the_json["height"]
+            if tallest < currentheight:
+                tallest = currentheight
+                name = the_json["name"]
+                weight = the_json["weight"]
+                height = the_json["height"]
+    print(name, weight, height)
+
+    return {"name": name, "weight": weight, "height": height}
 
 
 def diarist():
@@ -121,6 +151,8 @@ def diarist():
          the test will have nothing to look at.
     TIP: this might come in handy if you need to hack a 3d print file in the future.
     """
+
+    no = print("no")
     pass
 
 
