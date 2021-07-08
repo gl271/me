@@ -1,0 +1,1 @@
+[{"name": "gen", "time_taken": 29.136979579925537, "percentage": 1.0}, {"name": "gen", "time_taken": 44.64230465888977, "percentage": 0.0}]
