@@ -275,7 +275,7 @@ def fast_filler(number_of_words=200) -> str:
     words = []
     for x in range(number_of_words):
         wordlength = random.randint(3, 7)
-        wordkey = random.randint(0, 3)
+        wordkey = random.randint(0, 2)
         words.append(dict_fill[str(wordlength)][wordkey])
     join_word = " ".join(words)
     join_word = join_word[0].upper() + join_word[1:]
