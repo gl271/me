@@ -263,8 +263,23 @@ def fast_filler(number_of_words=200) -> str:
     """
 
     fname = "dict_cache.json"
+    # with auto opens and close the file
 
-    return None
+    if os.path.exists(fname):
+        with open(fname, "r") as dict:
+            dict_fill = json.load(dict)
+    else:
+        dict_fill = make_filler_text_dictionary()
+        with open(fname, "w") as dict:
+            json.dump(dict_fill, dict)
+    words = []
+    for x in range(number_of_words):
+        wordlength = random.randint(3, 7)
+        wordkey = random.randint(0, 3)
+        words.append(dict_fill[str(wordlength)][wordkey])
+    join_word = " ".join(words)
+    join_word = join_word[0].upper() + join_word[1:]
+    return join_word + "."
 
 
 if __name__ == "__main__":
