@@ -220,7 +220,7 @@ def make_filler_text_dictionary() -> Dict:
     wd = {}
     for i in range(3, 8):
         wd[i] = []
-        for _ in range(4):
+        for x in range(4):
             wordlink = url + str(i)
             addedlinknumber = requests.get(wordlink)
             wd[i].append(addedlinknumber.text)
@@ -239,9 +239,11 @@ def random_filler_text(number_of_words=200) -> str:
     """
 
     my_dict = make_filler_text_dictionary()
-
     words = []
-
+    for x in range(number_of_words):
+        wordlength = random.randint(3, 7)
+        wordkey = random.randint(0, 2)
+        words.append(my_dict[wordlength][wordkey])
     return " ".join(words)
 
 
