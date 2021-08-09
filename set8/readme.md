@@ -11,8 +11,8 @@ dict = open(fname, "r")
 dict.write (dumped)
 dict.close()
 
-    fname ="dict_cache.json"
-    dumped = make_filler_text_dictionary
-    dict = open(fname, "w")
-    dict.write (dumped)
-    dict.close()
+fname ="dict_cache.json"
+dumped = make_filler_text_dictionary
+dict = open(fname, "w")
+dict.write (dumped)
+dict.close()
